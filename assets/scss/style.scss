@@ -210,3 +210,13 @@ body {
     }
   }
 }
+
+@media screen and (max-width: 999px) {
+  .row {
+    width: 80%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+}
