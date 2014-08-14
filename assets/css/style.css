@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  *outline: 1px dashed black;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -202,3 +201,13 @@ body {
 
   .col-12 {
     width: 100%; } }
+@media screen and (max-width: 768px) {
+  #hero .hero-image {
+    width: 100%;
+    height: 100%; }
+
+  #hero .hero-image {
+    background-position: top right; }
+
+  #hero .name {
+    font-size: 27px; } }
