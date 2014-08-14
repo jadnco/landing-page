@@ -1,0 +1,212 @@
+// Common colours
+$black: #000;
+
+// Custom vendor prefix mixin
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+// Use translation to center vertically or horizontally
+@mixin center($XorY, $position, $transforms: "") {
+    position: #{$position};
+
+    @if $XorY == X {
+        left: 50%;
+    } @else {
+        top: 50%;
+    }
+
+    // Apply translation using the custom prefix mixin
+    @include prefix("transform", "translate#{$XorY}(-50%) #{$transforms}");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  *outline: 1px dashed $black;
+
+  @include prefix("box-sizing", "border-box");
+
+  // Make the text a little more legible
+  @include prefix("font-smoothing", "optimizelegibilty");
+}
+
+$columns: 12;
+$col-width: 54;
+$gut-width: 32;
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    width: #{$i * $col-width + $gut-width * ($i - 1)}px;
+  }
+}
+
+[class*="col-"] {
+  margin: 16px 16px;
+  display: inline;
+  float: left;
+
+  &.right {
+    float: right;
+    right: 0;
+  }
+
+  &.left  {
+    float: left;
+    left: 0;
+  }
+}
+
+.row {
+  width: 1000px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+
+  [class*="col-"]:first-child {
+    margin-left: 0;
+  }
+
+  [class*="col-"]:last-child {
+    margin-right: 0;
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #fff;
+  overflow: hidden;
+}
+
+.clearfix:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+.v-center {
+    @include center("Y", "relative")
+}
+
+.h-center {
+    @include center("X", "relative")
+}
+
+::selection {
+  background: #000;
+  color: #efedef;
+}
+
+#hero {
+  width: 100%;
+  height: 100%;
+
+
+  .hero-image {
+    width: 2560px;
+    height: 1709px;
+    background: linear-gradient(rgba(#fff, 0.9), #fff), url(../images/lake.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .col-12 {
+    @extend .v-center;
+
+    @include prefix("animation", "fadeIn 2s");
+    @include prefix("transform", "translateZ(0%)");
+  }
+
+  .name {
+    text-align: center;
+    font: 36px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+  }
+
+  .role {
+    text-align: center;
+    font: 18px "Montserrat", sans-serif;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  .socials {
+    list-style: none;
+    margin-top: 50px;
+    display: block;
+    float: left;
+    @extend .h-center;
+
+    li {
+      display: inline-block;
+      margin: 0 8px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      [class*="icon-"] {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-repeat: no-repeat !important;
+        background-size: 100% !important;
+      }
+
+      $icons: dribbble github linkedin twitter flickr;
+
+      @each $icon in $icons {
+        .icon-#{$icon} {
+          background: url(../images/#{$icon}.svg);
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  background: #000;
+
+  ::selection { background: #fff; color: #000; }
+
+  #hero .hero-image {
+    background: linear-gradient(rgba(#000, 0.85), #000), url(../images/lake.jpg);
+  }
+
+  .col-12 { opacity: 0.8; color: #fff; }
+
+  [class*="icon-"] {
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+  }
+
+  $icons: dribbble github linkedin twitter flickr;
+
+  @each $icon in $icons {
+    .socials .icon-#{$icon} {
+      background-image: url(../images/#{$icon}-light.svg)!important;
+      background-position: 50% 50% !important;
+    }
+  }
+}
