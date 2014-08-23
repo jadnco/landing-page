@@ -172,14 +172,14 @@ a {
     color: #faf5f2; }
 
 @media screen and (max-width: 999px) {
-  body {
-    padding-left: 30px; }
-
   * {
     text-align: left !important; }
 
+  #hero, .socials {
+    padding-left: 30px; }
+
   body {
-    border: none; }
+    border: none !important; }
 
   .row {
     width: 100%; }

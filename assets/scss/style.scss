@@ -198,12 +198,15 @@ a {
     text-align: left !important;
   }
 
+  #hero, .socials {
+    padding-left: 30px;
+  }
+
   body {
-    border: none;
+    border: none !important;
   }
   .row {
     width: 100%;
-    padding-left: 30px;
   }
 
   .col-12 {
