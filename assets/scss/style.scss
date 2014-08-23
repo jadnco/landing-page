@@ -194,10 +194,6 @@ a {
 }
 
 @media screen and (max-width: 999px) {
-  body {
-    padding-left: 30px;
-  }
-
   * {
     text-align: left !important;
   }
@@ -207,6 +203,7 @@ a {
   }
   .row {
     width: 100%;
+    padding-left: 30px;
   }
 
   .col-12 {
