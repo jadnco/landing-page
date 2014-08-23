@@ -45,7 +45,6 @@ $gut-width: 32;
 }
 
 [class*="col-"] {
-  margin: 16px 16px;
   display: inline;
   float: left;
 
@@ -152,7 +151,6 @@ a {
   width: 100%;
   bottom: 30px;
   list-style: none;
-  @extend .h-center;
   text-align: center;
 
   li {
@@ -196,8 +194,19 @@ a {
 }
 
 @media screen and (max-width: 999px) {
+  body {
+    padding-left: 30px;
+  }
+
+  * {
+    text-align: left !important;
+  }
+
+  body {
+    border: none;
+  }
   .row {
-    width: 80%;
+    width: 100%;
   }
 
   .col-12 {
