@@ -73,8 +73,15 @@ body {
   height: 100%; }
 
 body {
-  background: #fff;
+  background: #faf5f2;
+  border: 10px solid #17191b;
   overflow: hidden; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+  a:hover {
+    border-bottom: 1px solid #17191b; }
 
 .clearfix:after {
   content: "";
@@ -92,7 +99,7 @@ body {
   -o-transform: translateY(-50%) ;
   transform: translateY(-50%) ; }
 
-.h-center, #hero .socials {
+.h-center, .socials {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%) ;
@@ -101,20 +108,12 @@ body {
   transform: translateX(-50%) ; }
 
 ::selection {
-  background: #000;
+  background: #17191b;
   color: #efedef; }
 
 #hero {
   width: 100%;
   height: 100%; }
-  #hero .hero-image {
-    width: 2560px;
-    height: 1709px;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), white), url(../images/lake.jpg);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; }
   #hero .col-12 {
     -webkit-animation: fadeIn 2s;
     -moz-animation: fadeIn 2s;
@@ -126,74 +125,52 @@ body {
     transform: translateZ(0%); }
   #hero .name {
     text-align: center;
-    font: 36px "Montserrat", sans-serif;
+    font: 36px 'IM Fell English', serif;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     font-weight: 700; }
   #hero .role {
     text-align: center;
-    font: 18px "Montserrat", sans-serif;
+    font: 18px 'IM Fell English', serif;
     margin-top: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700; }
-  #hero .socials {
-    list-style: none;
-    margin-top: 50px;
-    display: block;
-    float: left; }
-    #hero .socials li {
-      display: inline-block;
-      margin: 0 8px; }
-      #hero .socials li:first-of-type {
-        margin-left: 0; }
-      #hero .socials li:last-of-type {
-        margin-right: 0; }
-      #hero .socials li [class*="icon-"] {
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        background-repeat: no-repeat !important;
-        background-size: 100% !important; }
-      #hero .socials li .icon-dribbble {
-        background: url(../images/dribbble.svg); }
-      #hero .socials li .icon-github {
-        background: url(../images/github.svg); }
-      #hero .socials li .icon-linkedin {
-        background: url(../images/linkedin.svg); }
-      #hero .socials li .icon-twitter {
-        background: url(../images/twitter.svg); }
-      #hero .socials li .icon-flickr {
-        background: url(../images/flickr.svg); }
+
+.socials {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  list-style: none;
+  text-align: center; }
+  .socials li {
+    display: inline-block;
+    padding: 0 8px;
+    font: 16px 'IM Fell English', serif;
+    letter-spacing: 1px;
+    color: #17191b;
+    text-align: center; }
+    .socials li:first-of-type {
+      margin-left: 0; }
+    .socials li:last-of-type {
+      margin-right: 0; }
 
 .dark {
-  background: #000; }
+  background: #17191b;
+  border: 10px solid #faf5f2; }
+  .dark a:hover {
+    border-bottom: 1px solid #faf5f2; }
   .dark ::selection {
-    background: #fff;
-    color: #000; }
-  .dark #hero .hero-image {
-    background: linear-gradient(rgba(0, 0, 0, 0.85), black), url(../images/lake.jpg); }
+    background: #faf5f2;
+    color: #17191b; }
   .dark .col-12 {
     opacity: 0.8;
-    color: #fff; }
+    color: #faf5f2; }
   .dark [class*="icon-"] {
     background-repeat: no-repeat !important;
     background-size: 100% !important; }
-  .dark .socials .icon-dribbble {
-    background-image: url(../images/dribbble-light.svg) !important;
-    background-position: 50% 50% !important; }
-  .dark .socials .icon-github {
-    background-image: url(../images/github-light.svg) !important;
-    background-position: 50% 50% !important; }
-  .dark .socials .icon-linkedin {
-    background-image: url(../images/linkedin-light.svg) !important;
-    background-position: 50% 50% !important; }
-  .dark .socials .icon-twitter {
-    background-image: url(../images/twitter-light.svg) !important;
-    background-position: 50% 50% !important; }
-  .dark .socials .icon-flickr {
-    background-image: url(../images/flickr-light.svg) !important;
-    background-position: 50% 50% !important; }
+  .dark .socials li {
+    color: #faf5f2; }
 
 @media screen and (max-width: 999px) {
   .row {
@@ -202,12 +179,5 @@ body {
   .col-12 {
     width: 100%; } }
 @media screen and (max-width: 768px) {
-  #hero .hero-image {
-    width: 100%;
-    height: 100%; }
-
-  #hero .hero-image {
-    background-position: top right; }
-
   #hero .name {
     font-size: 27px; } }
