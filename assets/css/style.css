@@ -265,17 +265,20 @@ body.light {
     ul.socials li {
       float: none; } }
 @media screen and (max-width: 720px) and (orientation: landscape) {
+  body {
+    background-size: contain !important; }
+
   .main-content {
     top: 0 !important;
     position: relative !important;
     float: none;
-    left: 0 !important;
     padding: 20px 0 40px 0; }
 
   ul.socials {
     bottom: 5px;
     display: block;
-    float: left; } }
+    float: left;
+    position: relative !important; } }
 @-webkit-keyframes CfadeIn {
   from {
     left: -40px;
