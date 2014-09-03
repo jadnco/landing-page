@@ -197,7 +197,6 @@ body.light {
   }
 
   .main-content {
-    left: 0;
     width: 85%;
     top: 22%;
 
@@ -207,8 +206,8 @@ body.light {
   }
 
   ul.socials {
-    left: 0;
     bottom: 60px;
+    
     @include center("X", "absolute");
   }
 }
