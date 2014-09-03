@@ -1,6 +1,7 @@
 // Common colours
-$dark: #17191b;
-$light: #faf5f2;
+$dark: #2c2b2b;
+$light: #ccd0d1;
+$font-family: "Karla, sans-serif";
 
 // Custom vendor prefix mixin
 @mixin prefix($property, $value) {
@@ -28,50 +29,8 @@ $light: #faf5f2;
   margin: 0;
   padding: 0;
 
-  @include prefix("box-sizing", "border-box");
-
   // Make the text a little more legible
-  @include prefix("font-smoothing", "optimizelegibilty");
-}
-
-$columns: 12;
-$col-width: 54;
-$gut-width: 32;
-
-@for $i from 1 through $columns {
-  .col-#{$i} {
-    width: #{$i * $col-width + $gut-width * ($i - 1)}px;
-  }
-}
-
-[class*="col-"] {
-  display: inline;
-  float: left;
-
-  &.right {
-    float: right;
-    right: 0;
-  }
-
-  &.left  {
-    float: left;
-    left: 0;
-  }
-}
-
-.row {
-  width: 1000px;
-  height: 100%;
-  position: relative;
-  margin: 0 auto;
-
-  [class*="col-"]:first-child {
-    margin-left: 0;
-  }
-
-  [class*="col-"]:last-child {
-    margin-right: 0;
-  }
+  @include prefix("font-smoothing", "antialiased");
 }
 
 html,
@@ -81,18 +40,14 @@ body {
 }
 
 body {
-  background: $light;
-  border: 10px solid $dark;
+  background: $dark url(../images/bg-dark.png);
+  background-size: cover;
   overflow: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-
-  &:hover {
-    border-bottom: 1px solid $dark;
-  }
 }
 
 .clearfix:after {
@@ -105,117 +60,170 @@ a {
 }
 
 .v-center {
-    @include center("Y", "relative")
+    @include center("Y", "relative");
 }
 
 .h-center {
-    @include center("X", "relative")
+    @include center("X", "relative");
+}
+
+.center {
+  @extend .v-center;
+  @extend .h-center;
 }
 
 ::selection {
-  background: $dark;
-  color: #efedef;
+  background: $light;
+  color: $dark;
 }
 
-#hero {
-  width: 100%;
-  height: 100%;
+.main-content {
+  position: absolute;
+  top: 32%;
+  left: 100px;
+  max-width: 550px;
 
-  .col-12 {
-    @extend .v-center;
-
-    @include prefix("animation", "fadeIn 2s");
-    @include prefix("transform", "translateZ(0%)");
+  .name,
+  .desc {
+    font-family: #{$font-family};
+    color: $light;
   }
 
   .name {
-    text-align: center;
-    font: 36px 'IM Fell English', serif;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 700;
+    font-size: 36px;
+    position: relative;
+
+    @include prefix("animation", "CfadeIn 0.5s");
   }
 
-  .role {
-    text-align: center;
-    font: 18px 'IM Fell English', serif;
-    margin-top: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
+  .desc {
+    font-size: 18px;
+    margin-top: 14px;
+    line-height: 26px;
+    position: relative;
+
+    @include prefix("animation", "CfadeIn 0.9s");
   }
 }
 
-.socials {
+ul.socials {
   position: absolute;
-  width: 100%;
-  bottom: 30px;
+  left: 100px;
+  bottom: 100px;
   list-style: none;
-  text-align: center;
 
   li {
+    width: 24px;
+    height: 24px;
     display: inline-block;
-    padding: 0 8px;
-    font: 16px 'IM Fell English', serif;
-    letter-spacing: 1px;
-    color: $dark;
-    text-align: center;
+    margin: 0 8px;
 
     &:first-of-type {
       margin-left: 0;
     }
 
     &:last-of-type {
-      margin-right: 0;
+      margin-right: 0px;
+    }
+
+    $links: dribbble github twitter linkedin flickr email;
+    $count: 1;
+
+    @each $link in $links {
+      $count: $count + 1;
+
+      a.#{$link} {
+        width: 24px;
+        height: 24px;
+        display: block;
+        background: url(../images/#{$link}-light.svg) no-repeat;
+        background-size: 24px 24px;
+        position: relative;
+        padding-bottom: 10px;
+
+        @include prefix("animation", "SfadeIn #{$count/7}s");
+        @include prefix("transition", "all 0.15s cubic-bezier(0, 1, 1, 2)");
+
+        &:hover {
+          margin-top: -8px;
+          padding-bottom: 20px;
+        }
+      }
     }
   }
 }
 
-.dark {
-  background: #17191b;
-  border: 10px solid $light;
+.blur {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background: $dark url(../images/bg-dark-blur.png);
+  background-attachment: fixed;
+  background-size: cover;
 
-  a:hover {
-    border-bottom: 1px solid $light;
-  }
+  @include prefix("border-radius", "75px");
+}
 
-  ::selection { background: $light; color: $dark; }
-
-  .col-12 { opacity: 0.8; color: $light; }
-
-  [class*="icon-"] {
-    background-repeat: no-repeat !important;
-    background-size: 100% !important;
-  }
-
-  .socials li {
+body.light {
+  ::selection {
+    background: $dark;
     color: $light;
   }
+
+  background: $light url(../images/bg-light.png);
+  background-size: cover;
+
+  .name,
+  .desc { color: $dark; }
+
+  $links: github dribbble linkedin flickr email twitter;
+
+  @each $link in $links {
+    a.#{$link} {
+      background-image: url(../images/#{$link}-dark.svg) !important;
+    }
+  }
+
+  .blur {
+    background: $light url(../images/bg-light-blur.png) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+  }
 }
 
-@media screen and (max-width: 999px) {
-  * {
-    text-align: left !important;
-  }
-
-  #hero, .socials {
-    padding-left: 30px;
-  }
-
-  body {
-    border: none !important;
-  }
-  .row {
-    width: 100%;
-  }
-
-  .col-12 {
-    width: 100%;
-  }
+@media screen and (max-width: 720px) {
+  .main-content { left: 30px; width: 85%; }
+  ul.socials { left: 30px; bottom: 60px; }
 }
 
-@media screen and (max-width: 768px) {
-  #hero .name {
-    font-size: 27px;
-  }
+@-webkit-keyframes CfadeIn {
+  from { left: -40px; opacity: 0; }
+  to { left: 0px; opacity: 1; }
 }
+
+@-moz-keyframes CfadeIn {
+  from { left: -40px; opacity: 0; }
+  to { left: 0px; opacity: 1; }
+}
+
+@keyframes CfadeIn {
+  from { left: -40px; opacity: 0; }
+  to { left: 0px; opacity: 1; }
+}
+
+@-webkit-keyframes SfadeIn {
+  from { bottom: -40px; opacity: 0; }
+  to { bottom: 0px; opacity: 1; }
+}
+
+@-moz-keyframes SfadeIn {
+  from { bottom: -40px; opacity: 0; }
+  to { bottom: 0px; opacity: 1; }
+}
+
+@keyframes SfadeIn {
+  from { bottom: -40px; opacity: 0; }
+  to { bottom: 0px; opacity: 1; }
+}
+
+/* dat sass tho */
