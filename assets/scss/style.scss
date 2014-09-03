@@ -173,6 +173,10 @@ body.light {
   background: $light url(../images/bg-light.png);
   background-size: cover;
 
+  .main-content {
+    top: 22%;
+  }
+
   .name,
   .desc { color: $dark; }
 
