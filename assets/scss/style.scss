@@ -173,10 +173,6 @@ body.light {
   background: $light url(../images/bg-light.png);
   background-size: cover;
 
-  .main-content {
-    top: 22%;
-  }
-
   .name,
   .desc { color: $dark; }
 
@@ -196,8 +192,17 @@ body.light {
 }
 
 @media screen and (max-width: 720px) {
-  .main-content { left: 30px; width: 85%; }
-  ul.socials { left: 30px; bottom: 60px; }
+  .main-content {
+    left: 0;
+    width: 85%;
+    top: 22%;
+
+    @extend .h-center;
+
+    * { text-align: center; }
+  }
+  
+  ul.socials { left: 0; bottom: 60px; @extend .h-center; }
 }
 
 @-webkit-keyframes CfadeIn {
