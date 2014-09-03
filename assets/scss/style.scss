@@ -192,17 +192,25 @@ body.light {
 }
 
 @media screen and (max-width: 720px) {
+  .blur {
+    display: none;
+  }
+
   .main-content {
     left: 0;
     width: 85%;
     top: 22%;
 
-    @extend .h-center;
+    @include center("X", "absolute");
 
     * { text-align: center; }
   }
-  
-  ul.socials { left: 0; bottom: 60px; @extend .h-center; }
+
+  ul.socials {
+    left: 0;
+    bottom: 60px;
+    @include center("X", "absolute");
+  }
 }
 
 @-webkit-keyframes CfadeIn {

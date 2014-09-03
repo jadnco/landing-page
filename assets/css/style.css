@@ -242,16 +242,31 @@ body.light {
     background-size: cover !important; }
 
 @media screen and (max-width: 720px) {
+  .blur {
+    display: none; }
+
   .main-content {
     left: 0;
     width: 85%;
-    top: 22%; }
+    top: 22%;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%) ;
+    -moz-transform: translateX(-50%) ;
+    -o-transform: translateX(-50%) ;
+    transform: translateX(-50%) ; }
     .main-content * {
       text-align: center; }
 
   ul.socials {
     left: 0;
-    bottom: 60px; } }
+    bottom: 60px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%) ;
+    -moz-transform: translateX(-50%) ;
+    -o-transform: translateX(-50%) ;
+    transform: translateX(-50%) ; } }
 @-webkit-keyframes CfadeIn {
   from {
     left: -40px;
