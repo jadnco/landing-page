@@ -201,14 +201,16 @@ body.light {
     top: 22%;
 
     @include center("X", "absolute");
-
-    * { text-align: center; }
   }
 
   ul.socials {
-    bottom: 60px;
-    
-    @include center("X", "absolute");
+    width: 100%;
+    bottom: 40px;
+    text-align: center;
+
+    li {
+      float: none;
+    }
   }
 }
 

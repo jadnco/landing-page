@@ -254,17 +254,13 @@ body.light {
     -moz-transform: translateX(-50%) ;
     -o-transform: translateX(-50%) ;
     transform: translateX(-50%) ; }
-    .main-content * {
-      text-align: center; }
 
   ul.socials {
-    bottom: 60px;
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%) ;
-    -moz-transform: translateX(-50%) ;
-    -o-transform: translateX(-50%) ;
-    transform: translateX(-50%) ; } }
+    width: 100%;
+    bottom: 40px;
+    text-align: center; }
+    ul.socials li {
+      float: none; } }
 @-webkit-keyframes CfadeIn {
   from {
     left: -40px;
