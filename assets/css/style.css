@@ -266,7 +266,7 @@ body.light {
       float: none; } }
 @media screen and (max-width: 720px) and (orientation: landscape) {
   body {
-    background-size: contain !important; }
+    background-attachment: fixed !important; }
 
   .main-content {
     top: 0 !important;
