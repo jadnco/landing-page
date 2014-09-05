@@ -153,17 +153,6 @@ ul.socials {
   }
 }
 
-.blur {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  background: $dark url(../images/bg-dark-blur.png);
-  background-attachment: fixed;
-  background-size: cover;
-
-  @include prefix("border-radius", "75px");
-}
-
 body.light {
   ::selection {
     background: $dark;
@@ -183,19 +172,9 @@ body.light {
       background-image: url(../images/#{$link}-dark.svg) !important;
     }
   }
-
-  .blur {
-    background: $light url(../images/bg-light-blur.png) !important;
-    background-attachment: fixed !important;
-    background-size: cover !important;
-  }
 }
 
 @media screen and (max-width: 720px) {
-  .blur {
-    display: none;
-  }
-
   .main-content {
     width: 85%;
     top: 22%;

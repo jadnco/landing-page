@@ -203,18 +203,6 @@ ul.socials {
         margin-top: -8px;
         padding-bottom: 20px; }
 
-.blur {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  background: #2c2b2b url(../images/bg-dark-blur.png);
-  background-attachment: fixed;
-  background-size: cover;
-  -webkit-border-radius: 75px;
-  -moz-border-radius: 75px;
-  -o-border-radius: 75px;
-  border-radius: 75px; }
-
 body.light {
   background: #ccd0d1 url(../images/bg-light.png);
   background-size: cover; }
@@ -236,15 +224,8 @@ body.light {
     background-image: url(../images/email-dark.svg) !important; }
   body.light a.twitter {
     background-image: url(../images/twitter-dark.svg) !important; }
-  body.light .blur {
-    background: #ccd0d1 url(../images/bg-light-blur.png) !important;
-    background-attachment: fixed !important;
-    background-size: cover !important; }
 
 @media screen and (max-width: 720px) {
-  .blur {
-    display: none; }
-
   .main-content {
     width: 85%;
     top: 22%;
